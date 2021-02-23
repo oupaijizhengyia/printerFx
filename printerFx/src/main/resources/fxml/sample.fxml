@@ -1,0 +1,99 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+
+<?import javafx.scene.control.Label?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.control.ProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ListCell?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" hgap="10" vgap="10" >
+    <padding>
+        <Insets top="20" left="40" right="40"></Insets>
+    </padding>
+    <FlowPane>
+        <GridPane.rowIndex>0</GridPane.rowIndex>
+
+        <Label alignment="CENTER_RIGHT">
+            <text>打印机： </text>
+        </Label>
+
+        <JFXComboBox fx:id="printerBox">
+            <FlowPane.margin>
+                <Insets left="20"></Insets>
+            </FlowPane.margin>
+            <minWidth>150</minWidth>
+            <maxWidth>150</maxWidth>
+        </JFXComboBox>
+    </FlowPane>
+
+    <FlowPane>
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+
+        <Label alignment="BOTTOM_RIGHT">
+            <text> 纸张大小:</text>
+        </Label>
+        <JFXComboBox fx:id="pageBox" focusColor="cornflowerblue">
+            <FlowPane.margin>
+                <Insets left="20"></Insets>
+            </FlowPane.margin>
+            <minWidth>150</minWidth>
+        </JFXComboBox>
+    </FlowPane>
+
+    <FlowPane>
+        <GridPane.margin>
+            <Insets top="20"></Insets>
+        </GridPane.margin>
+        <GridPane.rowIndex>2</GridPane.rowIndex>
+
+        <Label alignment="BOTTOM_RIGHT">
+            <text> 打印页码:  </text>
+        </Label>
+        <JFXTextField fx:id="start" minWidth="72" maxWidth="72" alignment="CENTER" validators="">
+            <FlowPane.margin>
+                <Insets left="20"></Insets>
+            </FlowPane.margin>
+        </JFXTextField>
+        <Label alignment="BOTTOM_RIGHT">
+            <text> - </text>
+        </Label>
+        <JFXTextField fx:id="end" minWidth="72" maxWidth="72" alignment="CENTER"></JFXTextField>
+    </FlowPane>
+
+    <FlowPane>
+        <GridPane.margin>
+            <Insets top="20" bottom="10"></Insets>
+        </GridPane.margin>
+        <GridPane.rowIndex>3</GridPane.rowIndex>
+        <JFXProgressBar fx:id="progress" visible="false" maxWidth="320" minWidth="320"/>
+    </FlowPane>
+
+    <FlowPane>
+
+        <GridPane.rowIndex>4</GridPane.rowIndex>
+        <JFXListView fx:id="fileListView"  onDragExited="#onFile">
+
+            <minWidth>320</minWidth>
+            <maxWidth>320</maxWidth>
+            <maxHeight>200</maxHeight>
+            <minHeight>200</minHeight>
+        </JFXListView>
+    </FlowPane>
+
+    <FlowPane alignment="CENTER_LEFT">
+        <GridPane.margin>
+            <Insets left="260"></Insets>
+        </GridPane.margin>
+
+        <GridPane.rowIndex>5</GridPane.rowIndex>
+        <JFXButton text="打印" onMouseClicked="#onPrint" styleClass="button-raised"/>
+    </FlowPane>
+</GridPane>

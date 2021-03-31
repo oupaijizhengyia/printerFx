@@ -75,6 +75,15 @@ public class Controller implements Initializable {
             fileListView.refresh();
         });
         contextMenu.getItems().add(item);
+
+        MenuItem itemAll = new MenuItem("删除全部");
+        itemAll.setOnAction(o ->{
+            cacheFile.clear();
+            fileListView.getItems().clear();
+            fileListView.refresh();
+        });
+        contextMenu.getItems().add(itemAll);
+
         fileListView.setContextMenu(contextMenu);
 
         //弹窗

@@ -36,10 +36,8 @@ public class PDFPrinter implements JFXPrinter {
             }
 
             //若结束页码大于所有页码， 则打印全部
-            if(numberOfPages > printPage.getRange().getEnd()){
-                if (!printPage.between(numberOfPages)) {
-                    return false;
-                }
+            if(numberOfPages < printPage.getRange().getEnd()){
+                printPage.getRange().setEnd(numberOfPages);
             }
 
             boolean flag = true;
